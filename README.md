@@ -51,7 +51,7 @@ Repositório Flask com Mysql, Exercício Lista de tarefas.
 ## 5. Operações Básicas com MySQL no Flask
 
 - Criação de tabelas no MySQL
-- Operações CRUD (Create, Read, Update, Delete) no Flask
+- Operações (Create, Read) no Flask
 - Exemplos práticos de consultas SQL com Flask
 
 ---
