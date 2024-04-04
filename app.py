@@ -30,6 +30,30 @@ def add_task():
         mysql.connection.commit()
         cur.close()
         return redirect(url_for('index'))
+    
+# Rota para atualizar uma tarefa
+@app.route('/update/<int:task_id>', methods=['POST'])
+def update_task(task_id):
+    if request.method == 'POST':
+        description = request.form['description']
+        due_date = request.form['due_date']
+        status = request.form['status']
+        cur = mysql.connection.cursor()
+        cur.execute("UPDATE tasks SET description=%s, due_date=%s, status=%s WHERE id=%s", (description, due_date, status, task_id))
+        mysql.connection.commit()
+        cur.close()
+        return redirect(url_for('index'))
+    
+# Rota para excluir uma tarefa
+@app.route('/delete/<int:task_id>', methods=['POST'])
+def delete_task(task_id):
+    if request.method == 'POST':
+        cur = mysql.connection.cursor()
+        cur.execute("DELETE FROM tasks WHERE id=%s", (task_id,))
+        mysql.connection.commit()
+        cur.close()
+        return redirect(url_for('index'))
+
 
 if __name__ == '__main__':
     app.run(debug=True)

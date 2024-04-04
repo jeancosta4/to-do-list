@@ -12,10 +12,14 @@
         <input type="date" name="due_date" required>
         <button type="submit">Add Task</button>
     </form>
+
+    
     <ul>
         {% for task in tasks %}
         <li>{{ task[0] }} - Due: {{ task[1] }}</li>
         {% endfor %}
     </ul>
+
+   
 </body>
 </html>
